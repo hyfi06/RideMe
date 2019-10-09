@@ -1,0 +1,30 @@
+.login {
+  width: 25vw;
+  height: 50vh;
+  margin: 20vh 37.5vw;
+  padding: 1vw;
+  border: .1vw solid #13ABCE;
+  border-radius: 1vw;
+
+  .login__head {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .login__head-logo {
+      width: 3vw;
+      height: auto;
+      margin-right: 1vw;
+    }
+
+    .login__head-name {
+      font-size: 2vw;
+      color: #633A97;
+    }
+  }
+
+  .login__description {
+    font-size: 1.5vw;
+  }
+
+}
