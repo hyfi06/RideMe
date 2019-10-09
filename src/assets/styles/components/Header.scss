@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .header_logo {
+    width: 3vw;
+    height: auto;
+    margin-right: 1vw;
+  }
+
+  .header_name {
+    font-size: 2vw;
+    color: #633A97;
+  }
+}

@@ -1,9 +1,11 @@
 import React from 'react';
-import '../assets/styles/Header.scss';
+import logo from '../assets/static/taxi.png';
+import '../assets/styles/components/Header.scss';
 
 const Header = () => (
-  <header>
-    Test header
+  <header className='header'>
+    <img className='header_logo' src={logo} alt='Logo-RideMe' />
+    <h1 className='header_name'>Ride Me</h1>
   </header>
 );
 
