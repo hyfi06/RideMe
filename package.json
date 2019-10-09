@@ -1,5 +1,5 @@
 {
-  "name": "rebu",
+  "name": "rideme",
   "version": "1.0.0",
   "description": "Progressive Web App as UBER",
   "main": "index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hyfi06/rebu.git"
+    "url": "git+https://github.com/hyfi06/RideMe.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hyfi06/rebu/issues"
+    "url": "https://github.com/hyfi06/RideMe/issues"
   },
-  "homepage": "https://github.com/hyfi06/rebu#readme",
+  "homepage": "https://github.com/hyfi06/RideMe#readme",
   "dependencies": {
     "babel-eslint": "^10.0.3",
     "eslint": "^6.5.1",
