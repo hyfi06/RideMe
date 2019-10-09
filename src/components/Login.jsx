@@ -29,6 +29,9 @@ const Login = () => (
           placeholder='Contraseña'
         />
       </label>
+      <div className='login__button-container'>
+        <button type='submit'>Iniciar Sesión</button>
+      </div>
     </form>
   </div>
 );
