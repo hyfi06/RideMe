@@ -2,21 +2,23 @@ import React from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import '../assets/styles/components/map.scss';
 
+const style = {
+  height: 'inherit',
+  width: '100%',
+};
+
 class MapContainer extends React.Component {
   render() {
     return (
-      <div className='map-containers'>
+      <section className='map-container'>
         <Map
           google={google}
           zoom={15}
+          style={style}
           initialCenter={{ lat: 19.4267261, lng: -99.1718706 }}
-        >
-          <Marker
-            position={{ lat: 19.4267261, lng: -99.1718706 }}
-          />
-        </Map>
-      </div>
-    )
+        />
+      </section>
+    );
   }
 }
 
