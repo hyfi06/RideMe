@@ -2,7 +2,7 @@ import React from 'react';
 import '../assets/styles/components/Footer.scss';
 
 const Footer = () => (
-  <footer>
+  <footer className='footer'>
     Test footer
   </footer>
 );
