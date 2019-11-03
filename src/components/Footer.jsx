@@ -3,7 +3,8 @@ import '../assets/styles/components/Footer.scss';
 
 const Footer = () => (
   <footer className='footer'>
-    Test footer
+    <p className='footer__item'>Help</p>
+    <p className='footer__item'>About Us</p>
   </footer>
 );
 

@@ -4,7 +4,15 @@ import '../assets/styles/components/map.scss';
 
 const style = {
   height: 'inherit',
+  width: 'inherit',
+  position: 'relative',
+};
+
+const containerStyle = {
+  height: '100%',
   width: '100%',
+  position: 'relative',
+  flex: '1',
 };
 
 class MapContainer extends React.Component {
@@ -15,6 +23,7 @@ class MapContainer extends React.Component {
           google={google}
           zoom={15}
           style={style}
+          containerStyle={containerStyle}
           initialCenter={{ lat: 19.4267261, lng: -99.1718706 }}
         />
       </section>

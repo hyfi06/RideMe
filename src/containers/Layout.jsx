@@ -4,9 +4,13 @@ import Footer from '../components/Footer';
 import '../assets/styles/containers/Layout.scss';
 
 const Layout = ({ children }) => (
-  <div className='Layout-container'>
+  <div className='Layout'>
     <Header />
-    {children}
+    <section className='Layout__container'>
+      <section className='Layout__container--content'>
+        {children}
+      </section>
+    </section>
     <Footer />
   </div>
 );

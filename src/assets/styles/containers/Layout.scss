@@ -1,5 +1,18 @@
-.Layout-container{
+.Layout{
+  height: 100vh;
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
+}
+.Layout__container {
+  display: flex;
+  flex: 1;
+}
+.Layout__container--content{
+  margin: 0;
+  flex: 1;
+  display:flex;
+}
+
+.Layout__container--content > div{
+  flex: 1;
 }
