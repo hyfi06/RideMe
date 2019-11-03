@@ -6,6 +6,7 @@
 .Layout__container {
   display: flex;
   flex: 1;
+  overflow: auto;
 }
 .Layout__container--content{
   margin: 0;
