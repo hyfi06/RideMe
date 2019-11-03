@@ -4,9 +4,14 @@ import '../assets/styles/components/Header.scss';
 
 const Header = () => (
   <header className='header'>
-    <img className='header_logo' src={logo} alt='Logo-RideMe' />
-    <h1 className='header_name'> Ride Me </h1>
-    
+    <div className='header__logo-container'>
+      <img className='header__logo' src={logo} alt='Logo-RideMe' />
+      <h1 className='header__name'> Ride Me </h1>
+    </div>
+    <div className='header__session'>
+      <p className='header__session--link'> Login </p>
+      <p className='header__session--link'> Sign Up </p>
+    </div>
   </header>
 );
 

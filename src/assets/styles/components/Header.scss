@@ -1,17 +1,31 @@
 .header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  height: 71px;
-
+  height: 70px;
+  width: 100%;
 }
-.header_logo {
-  width: 3vw;
+.header__logo-container {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.header__logo {
+  width: 50px;
   height: auto;
-  margin-left: 10px;
+  margin: 0 10px;
 }
-
-.header_name {
-  font-size: 2vw;
+.header__name {
+  font-size: 28px;
   color: #633A97;
+  margin: 0
+}
+.header__session {
+  display: flex;
+  align-items: center;
+}
+.header__session--link {
+  font-size: 16px;
+  color: #633A97;
+  margin: 0 10px;
 }
