@@ -1,5 +1,5 @@
 // const MongoLib = require('../lib/mongo');
-const { driversMock } = require('../utils/MOCK_DRIVERS');
+const { driversMock } = require('../utils/MOCK_DRIVERS_v2');
 
 class DriversServices {
   // constructor() {
@@ -13,26 +13,26 @@ class DriversServices {
     return drivers || [];
   };
 
-  async getDriversNearby({ lat, lng }, resolution = 0.01) {
+  async getNearbyDrivers({ lat, lng }, resolution = 0.01) {
     this.mongo = false;
     const drivers = await Promise.resolve(driversMock);
     return drivers.filter((driver) => {
       return (
-        parseFloat(driver.lat) > parseFloat(lat) - resolution &&
-        parseFloat(driver.lat) < parseFloat(lat) + resolution &&
-        parseFloat(driver.lng) > parseFloat(lng) - resolution &&
-        parseFloat(driver.lng) < parseFloat(lng) + resolution
+        parseFloat(driver.coord.lat) > parseFloat(lat) - resolution &&
+        parseFloat(driver.coord.lat) < parseFloat(lat) + resolution &&
+        parseFloat(driver.coord.lng) > parseFloat(lng) - resolution &&
+        parseFloat(driver.coord.lng) < parseFloat(lng) + resolution
       );
     });
   };
 
   // async getDriversMongo({ lat, lng }) {
   //   const query = {
-  //     lat: {
+  //     coord.lat: {
   //       $gte: parseFloat(lat) - resolution,
   //       $lte: parseFloat(lat) + resolution,
   //     },
-  //     lng: {
+  //     coord.lng: {
   //       $gte: parseFloat(lng) - resolution,
   //       $lte: parseFloat(lng) + resolution,
   //     },
@@ -40,6 +40,10 @@ class DriversServices {
   //   const drivers = await this.mongoDB.getAll(this.collection, query);
   //   return drivers || [];
   // };
+
+  // async createDriver ({ Driver }) {
+  //   const createdDriverId = await this.mongoDB
+  // }
 }
 
 module.exports = DriversServices;

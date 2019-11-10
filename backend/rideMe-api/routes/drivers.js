@@ -28,7 +28,7 @@ function driversApi(app) {
         message: 'lat and lng require',
       });
     }
-    const drivers = await driversService.getDriversNearby({ lat, lng }, 0.01);
+    const drivers = await driversService.getNearbyDrivers({ lat, lng }, 0.01);
 
     res.status(200).json({
       data: drivers,
@@ -37,4 +37,4 @@ function driversApi(app) {
   });
 };
 
-module.exports = { driversApi };
+module.exports = driversApi;

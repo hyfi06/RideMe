@@ -1,3 +1,8 @@
+/* eslint-disable indent */
+/* eslint-disable comma-spacing */
+/* eslint-disable key-spacing */
+/* eslint-disable object-curly-spacing */
+/* eslint-disable quotes */
 const driversMock = [{"id":{"$oid":"5dc768f4fc13ae6923000000"},"first_name":"Allie","last_name":"Bleiman","email":"ableiman0@dailymail.co.uk","avatar":"https://robohash.org/aspernaturporrominima.jpg?size=50x50&set=set1","car_make":"Dodge","car_model":"Grand Caravan","car_plates":"CIX5581","car_color":"Maroon","available":false,"rank":5,"calif":"[]","lat":19.315483,"lng":-99.0619815},
 {"id":{"$oid":"5dc768f4fc13ae6923000001"},"first_name":"Trisha","last_name":"Scholler","email":"tscholler1@rediff.com","avatar":"https://robohash.org/accusantiumcumqueoccaecati.png?size=50x50&set=set1","car_make":"Mercury","car_model":"Topaz","car_plates":"BMZ7474","car_color":"Puce","available":false,"rank":5,"calif":"[]","lat":19.3053736,"lng":-99.1634988},
 {"id":{"$oid":"5dc768f4fc13ae6923000002"},"first_name":"Broddie","last_name":"Augar","email":"baugar2@issuu.com","avatar":"https://robohash.org/quiutmolestias.bmp?size=50x50&set=set1","car_make":"Volvo","car_model":"C70","car_plates":"JZG7349","car_color":"Blue","available":true,"rank":5,"calif":"[]","lat":19.3570283,"lng":-99.2013758},
