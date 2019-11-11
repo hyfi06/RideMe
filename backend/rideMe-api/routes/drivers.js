@@ -9,8 +9,9 @@ function driversApi(app) {
   const driversService = new DriversService();
 
   router.get('/', async (req, res, next) => {
+    const { lat, lng, range } = req.query;
     try {
-      const drivers = await driversService.getDrivers();
+      const drivers = await driversService.getDrivers({ lat, lng, range });
 
       res.status(200).json({
         data: drivers,
@@ -21,7 +22,7 @@ function driversApi(app) {
     }
   });
 
-  router.get('/id/:driverId', async (req, res, next) => {
+  router.get('/:driverId', async (req, res, next) => {
     const { driverId } = req.params;
 
     try {
@@ -33,38 +34,6 @@ function driversApi(app) {
       });
     } catch (error) {
       next(error);
-    }
-  });
-
-  router.get('/near', async (req, res, next) => {
-    const { lat, lng, range } = req.query;
-
-    if (!lat || !lng) {
-      res.status(400).json({
-        message: 'lat and lng require',
-      });
-    } else {
-      const drivers = await driversService.getNearbyDrivers({ lat, lng }, range);
-      res.status(200).json({
-        data: drivers,
-        message: 'nearbly drivers listed',
-      });
-    }
-  });
-  
-  router.get('/nearMock', async (req, res, next) => {
-    const { lat, lng, range } = req.query;
-
-    if (!lat || !lng) {
-      res.status(400).json({
-        message: 'lat and lng require',
-      });
-    } else {
-      const drivers = await driversService.getNearbyDriversMock({ lat, lng }, range);
-      res.status(200).json({
-        data: drivers,
-        message: 'nearbly drivers listed',
-      });
     }
   });
 
@@ -83,7 +52,7 @@ function driversApi(app) {
     }
   });
 
-  router.delete('/id/:driverId', async (req, res, next) => {
+  router.delete('/:driverId', async (req, res, next) => {
     const { driverId } = req.params;
 
     try {
@@ -98,7 +67,7 @@ function driversApi(app) {
     }
   });
 
-  router.patch('/id/:driverId', async (req, res, next) => {
+  router.patch('/:driverId', async (req, res, next) => {
     const { driverId } = req.params;
     const { body: driver } = req;
 
