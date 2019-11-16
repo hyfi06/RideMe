@@ -6,11 +6,10 @@ class TripsServices {
     this.mongoDB = new MongoLib();
   }
 
-  async createDriver({ driver }) {
+  async createTrip({ origin, destination }) {
     const createdDriverId = await this.mongoDB.create(this.collection, driver);
     return createdDriverId;
   }
-
 
   async getDrivers({ lat, lng, range = 0.01 }) {
     let query = {};
@@ -33,13 +32,13 @@ class TripsServices {
     return drivers || [];
   };
 
-  async getDriver({ driverId }) {
+  async getTrip({ driverId }) {
     const driver = await this.mongoDB.get(this.collection, driverId);
     return driver || {};
   };
 
 
-  async updateDriver({ driverId, driver } = {}) {
+  async updateTrip({ driverId, driver } = {}) {
     const updatedDriverId = await this.mongoDB.update(this.collection, driverId, driver);
     return updatedDriverId;
   }
