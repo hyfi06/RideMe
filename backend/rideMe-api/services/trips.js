@@ -1,4 +1,5 @@
 const MongoLib = require('../lib/mongo');
+const drivers = require('./drivers');
 
 class TripsServices {
   constructor() {
@@ -7,42 +8,41 @@ class TripsServices {
   }
 
   async createTrip({ origin, destination }) {
-    const createdDriverId = await this.mongoDB.create(this.collection, driver);
-    return createdDriverId;
+    let trip = {
+      'origin': origin,
+      'destination': destination,
+      'status': 'requested',
+    };
+    const ;
+    const nearDrivers = await drivers.getDrivers({});
+    const createdTripId = await this.mongoDB.create(this.collection, trip);
+    return createdTripId;
   }
 
-  async getDrivers({ lat, lng, range = 0.01 }) {
+  async getTrip({ tripId }) {
+    const trip = await this.mongoDB.get(this.collection, tripId);
+    return trip || {};
+  };
+
+  async getUserTrips({ userId }) {
     let query = {};
 
-    if (!!lat && !!lng) {
+    if (userId) {
       query = {
-        'coord.lat': {
-          $gte: parseFloat(lat) - range,
-          $lte: parseFloat(lat) + range,
-        },
-        'coord.lng': {
-          $gte: parseFloat(lng) - range,
-          $lte: parseFloat(lng) + range,
-        },
+        'user': userId,
+        'status': 'end',
       };
     }
 
-    const drivers = await this.mongoDB.getAll(this.collection, query);
+    const userTrips = await this.mongoDB.getAll(this.collection, query);
 
-    return drivers || [];
+    return userTrips || [];
   };
 
-  async getTrip({ driverId }) {
-    const driver = await this.mongoDB.get(this.collection, driverId);
-    return driver || {};
-  };
-
-
-  async updateTrip({ driverId, driver } = {}) {
-    const updatedDriverId = await this.mongoDB.update(this.collection, driverId, driver);
-    return updatedDriverId;
+  async updateTrip({ tripId, trip } = {}) {
+    const updatedTripId = await this.mongoDB.update(this.collection, tripId, trip);
+    return updatedTripId;
   }
-
 }
 
-module.exports = DriversServices;
+module.exports = TripsServices;

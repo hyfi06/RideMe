@@ -9,7 +9,7 @@ class DriversServices {
   async getDrivers({ lat, lng, range = 0.01 }) {
     let query = {};
 
-    if (!!lat && !!lng) {
+    if (lat && lng) {
       query = {
         'coord.lat': {
           $gte: parseFloat(lat) - range,
