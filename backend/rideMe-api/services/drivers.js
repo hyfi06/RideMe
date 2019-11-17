@@ -19,6 +19,7 @@ class DriversServices {
           $gte: parseFloat(lng) - range,
           $lte: parseFloat(lng) + range,
         },
+        'available':true,
       };
     }
 
