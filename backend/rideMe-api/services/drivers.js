@@ -38,7 +38,7 @@ class DriversServices {
     return createdDriverId;
   }
 
-  async updateDriver({ driverId, driver } = {}) {
+  async updateDriver({ driverId, driver }) {
     const updatedDriverId = await this.mongoDB.update(this.collection, driverId, driver);
     return updatedDriverId;
   }

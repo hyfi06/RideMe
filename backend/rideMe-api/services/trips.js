@@ -59,6 +59,11 @@ class TripsServices {
     const driverArrive = distances[minIndex];
     delete driverArrive.status;
 
+    driversService.updateDriver({
+      'driverId': driver._id,
+      'driver': { 'available': false },
+    });
+
     const trip = {
       ...tripData,
       'driverId': driver._id,
@@ -74,6 +79,11 @@ class TripsServices {
     const trip = await this.mongoDB.get(this.collection, tripId);
     return trip || {};
   };
+
+  async updateTrip({ tripId, trip }) {
+    const updatedTripId = await this.mongoDB.update(this.collection, tripId, trip);
+    return updatedTripId;
+  }
 
   async deleteTrip({ tripId }) {
     const deletedTripId = await this.mongoDB.delete(this.collection, tripId);
