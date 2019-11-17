@@ -37,77 +37,46 @@ function tripsApi(app) {
   router.post('/', async (req, res, next) => {
     const { body: tripRequest } = req;
     try {
-      const trip = await tripsService.createTrip(tripRequest);
+      const tripId = await tripsService.createTrip(tripRequest);
 
       res.status(200).json({
-        data: trip,
-        message: 'trip',
+        data: tripId,
+        message: 'trip create',
       });
     } catch (error) {
       next(error);
     }
   });
 
-  // router.get('/:driverId', async (req, res, next) => {
-  //   const { driverId } = req.params;
+  router.get('/:tripId', async (req, res, next) => {
+    const { tripId } = req.params;
 
-  //   try {
-  //     const driver = await driversService.getDriver({ driverId });
+    try {
+      const trip = await tripsService.getTrip({ tripId });
 
-  //     res.status(200).json({
-  //       data: driver,
-  //       message: 'driver retrieved',
-  //     });
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // });
+      res.status(200).json({
+        data: trip,
+        message: 'trip retrieved',
+      });
+    } catch (error) {
+      next(error);
+    }
+  });
 
-  // router.post('/', async (req, res, next) => {
-  //   const { body: driver } = req;
+  router.delete('/:tripId', async (req, res, next) => {
+    const { tripId } = req.params;
 
-  //   try {
-  //     const createdDriverId = await driversService.createDriver({ driver });
+    try {
+      const deletedTripId = await tripsService.deleteTrip({ tripId });
 
-  //     res.status(200).json({
-  //       data: createdDriverId,
-  //       message: 'driver created',
-  //     });
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // });
-
-  // router.delete('/:driverId', async (req, res, next) => {
-  //   const { driverId } = req.params;
-
-  //   try {
-  //     const deletedDriverId = await driversService.deleteDriver({ driverId });
-
-  //     res.status(200).json({
-  //       data: deletedDriverId,
-  //       message: 'driver deleted',
-  //     });
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // });
-
-  // router.patch('/:driverId', async (req, res, next) => {
-  //   const { driverId } = req.params;
-  //   const { body: driver } = req;
-
-  //   try {
-  //     const updatedDriverId = await driversService.updateDriver({ driverId, driver });
-
-  //     res.status(200).json({
-  //       data: updatedDriverId,
-  //       message: 'driver updated',
-  //     });
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // });
+      res.status(200).json({
+        data: deletedTripId,
+        message: 'driver deleted',
+      });
+    } catch (error) {
+      next(error);
+    }
+  });
 };
 
 module.exports = tripsApi;

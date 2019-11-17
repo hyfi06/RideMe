@@ -31,14 +31,17 @@ class GoogleMapsLib {
     return { lat, lng };
   };
 
-  parseLatLngToString = ({ lat, lng }) => {
+  latLngToString = ({ lat, lng }) => {
     return `${lat},${lng}`;
   };
 
   getDistance = ({ origin, destination }) => {
     return (
       axios.get(`${this.urlDistance}?origins=${origin}&destinations=${destination}&key=${apiMapsKey}`).then((res) => {
-        return res.data.rows;
+        const distance = res.data.rows.map((element) => {
+          return element.elements[0];
+        });
+        return distance;
       })
     );
   };
