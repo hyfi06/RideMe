@@ -9,3 +9,4 @@ driversMock.forEach(async (driver) => {
 });
 
 console.log('End process');
+process.exit(0);

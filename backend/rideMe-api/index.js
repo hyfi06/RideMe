@@ -2,6 +2,7 @@ const express = require('express');
 const { config } = require('./config/index');
 const driversApi = require('./routes/drivers');
 const tripsApi = require('./routes/trips');
+const userApi = require('./routes/users');
 const { logErrors, errorHandler, wrapErrors } = require('./utils/middleware/errorHandler');
 const notFoundHandler = require('./utils/middleware/notFoundHandler');
 

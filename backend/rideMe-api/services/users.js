@@ -8,13 +8,27 @@ class UserServices {
     this.mongoDB = new MongoLib();
   }
 
-  async getUser({ userId }) {
+  async getUserById({ userId }) {
     const user = await this.mongoDB.get(this.collection, userId);
     return user || {};
   };
 
+  async getUser({ email }) {
+    const user = await this.mongoDB.getAll(this.collection, { email });
+    return user || {};
+  };
+
   async createUser({ user }) {
-    const createdUserId = await this.mongoDB.create(this.collection, user);
+    const { first_name, last_name, email, password, isAdmin } = user;
+    const hashedPassword = await bcrypr.hash(password, 10);
+
+    const createdUserId = await this.mongoDB.create(this.collection, {
+      first_name,
+      last_name,
+      email,
+      'password': hashedPassword,
+      'isAdmin': Boolean(isAdmin),
+    });
     return createdUserId;
   }
 

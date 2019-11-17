@@ -6,7 +6,8 @@ const createUserSchema = {
   'first_name': joi.string().max(100).required(),
   'last_name': joi.string().max(100).required(),
   'email': joi.string().email().required(),
-  'passport': joi.string().required(),
+  'password': joi.string().required(),
+  'isAdmin': joi.boolean(),
 };
 
 module.exports = {

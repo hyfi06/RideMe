@@ -1,5 +1,7 @@
 const express = require('express');
 const UserService = require('../services/users');
+const validationHandler = require('../utils/middleware/validationHandler');
+const { userIdSchema, createUserSchema } = require('../utils/schemas/users');
 
 function userApi(app) {
   const router = express.Router();
@@ -8,21 +10,7 @@ function userApi(app) {
 
   const userService = new UserService();
 
-  // router.get('/', async (req, res, next) => {
-  //   const { lat, lng, range } = req.query;
-  //   try {
-  //     const drivers = await userService.getDrivers({ lat, lng, range });
-
-  //     res.status(200).json({
-  //       data: drivers,
-  //       message: 'drivers listed',
-  //     });
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // });
-
-  router.get('/:userId', async (req, res, next) => {
+  router.get('/:userId', validationHandler({ userId: userIdSchema }, 'params'), async (req, res, next) => {
     const { userId } = req.params;
 
     try {
@@ -37,7 +25,7 @@ function userApi(app) {
     }
   });
 
-  router.post('/', async (req, res, next) => {
+  router.post('/', validationHandler(createUserSchema), async (req, res, next) => {
     const { body: user } = req;
 
     try {
@@ -52,7 +40,7 @@ function userApi(app) {
     }
   });
 
-  router.delete('/:userId', async (req, res, next) => {
+  router.delete('/:userId', validationHandler({ userId: userIdSchema }, 'params'), async (req, res, next) => {
     const { userId } = req.params;
 
     try {
@@ -67,7 +55,7 @@ function userApi(app) {
     }
   });
 
-  router.patch('/:userId', async (req, res, next) => {
+  router.patch('/:userId', validationHandler({ userId: userIdSchema }, 'params'), async (req, res, next) => {
     const { userId } = req.params;
     const { body: user } = req;
 
