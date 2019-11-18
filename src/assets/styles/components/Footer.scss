@@ -1,13 +1,24 @@
+@import '../App.scss';
+
 .footer {
-  height: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: auto;
-}
-.footer__item {
-  font-size: 16px;
-  color: #633a97;
-  margin: 0 10px;
+  @include flexBetCen;
+  padding: 0 5vw;
+  height: 5vw;
+  color: $light-color;
+  background-color: $dark-color;
+
+  .footer__made {
+    @include flexCenCen;
+    height: 100%;
+
+    .footer__made__link {
+      width: auto;
+      height: 50%;
+      
+      .footer__made__link-img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
 }

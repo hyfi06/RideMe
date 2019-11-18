@@ -1,41 +1,44 @@
+@import "../App.scss";
+
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 70px;
-  width: 100%;
-}
-.header a {
-  text-decoration: none;
-}
-.header__logo-container {
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
-.header__logo-container:hover {
-  cursor: pointer;
-}
-.header__logo {
-  width: 50px;
-  height: auto;
-  margin: 0 10px;
-}
-.header__name {
-  font-size: 28px;
-  color: #633A97;
-  margin: 0;
-}
-.header__session {
-  display: flex;
-  align-items: center;
-}
-.header__session--link {
-  font-size: 16px;
-  color: #633A97;
-  margin: 0 10px;
-}
-.header__session--link:hover {
-  text-decoration: underline;
-  cursor: pointer;
+  @include flexBetCen;
+  height: 5vw;
+  padding: 0 5vw;
+  background-color: $primary-color;
+
+  .header__logo {
+    @include flexCenCen;
+    height: 100%;
+
+    .header__logo-img {
+      margin: 0 1vw;
+      width: auto;
+      height: 50%;
+    }
+
+    .header__logo-text {
+      color: $light-color;
+      margin: 0;
+
+      span {
+        color: $success-color;
+      }
+    }
+  }
+
+  .header__nav {
+    @include flexBetCen;
+
+    .header__nav-item {
+      margin: 1vw;
+      color: $light-color;
+      list-style: none;
+      transition: color 750ms ease-in;
+    }
+
+    .header__nav-item:hover {
+      color: $success-color;
+      cursor: pointer;
+    }
+  }
 }

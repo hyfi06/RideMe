@@ -1,8 +1,228 @@
+@import './Vars.scss';
+
+@mixin flexBetCen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flexCenCen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexEndCen {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@mixin flexStaCen {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin flexStaSta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin flexColCen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flexColCenCen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexColStaCen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+input {
+  border: none;
+  border-radius: 1.5vw;
+  color: $dark-color;
+  font-size: 1.2vw;
+  padding: 0.5vw 1vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+  color: $dark-color;
+  background-color: $secondary-color;
+  font-size: 1.25vw;
+  font-family: $text-font;
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oxygen', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $primary-color;
+    font-family: $title-font;
+    margin-top: 0;
   }
+
+  h1 {
+    font-size: 2.5vw;
+  }
+
+  h2 {
+    font-size: 1.875vw;
+  }
+
+  h3 {
+    font-size: 1.4625vw;
+  }
+
+  h4 {
+    font-size: 1.25vw;
+  }
+
+  h5 {
+    font-size: 1.0375vw;
+  }
+
+  h6 {
+    font-size: 0.8375vw;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: $success-color;
+  border: none;
+  border-radius: 1.5vw;
+  color: $light-color;
+  font-size: 1.15vw;
+  padding: 0.75vw 1vw;
+  transition: background-color 750ms ease-in;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: $select-color;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 50%;
+}
+
+button:disabled:hover {
+  background-color: $success-color;
+  cursor: default;
+  opacity: 50%;
+}
+
+:focus {
+  outline: none;
+}
+
+:visited {
+  color: inherit;
+}
+
+.form {
+  @include flexColStaCen;
+  background-color: $primary-color;
+  border-radius: 1vw;
+  color: $light-color;
+  height: fit-content;
+  padding: 2.5vw;
+  width: fit-content;
+
+  h2 {
+    color: $success-color;
+  }
+
+  .label {
+    color: $success-color;
+    margin-bottom: 0.25vw;
+    margin-top: 1vw;
+  }
+
+  input {
+    border: none;
+    border-radius: 1.5vw;
+    color: $dark-color;
+    font-size: 1.2vw;
+    padding: 0.5vw 1vw;
+  }
+
+  .inputError {
+    color: $danger-color;
+    font-size: 1vw;
+  }
+
+  .inputFile {
+    color: $light-color;
+    font-size: 1vw;
+  }
+
+  .formVertical {
+    @include flexColStaCen;
+  }
+
+  .formHorizontal {
+    .formHorizontal__line {
+      @include flexStaSta;
+
+      .formHorizontal__line-item {
+        @include flexColStaCen;
+        margin-right: 2.5vw;
+      }
+
+      .formHorizontal__line-item:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .buttonContainer {
+      @include flexCenCen;
+      width: 100%;
+
+      button {
+        min-width: 35%;
+        width: fit-content;
+      }
+    }
+  }
+
+  button {
+    margin-top: 1.5vw;
+    width: 100%;
+  }
+}
+
+.link {
+  transition: color 750ms ease-in;
+}
+
+.link:hover {
+  color: $success-color;
+}
+
+.verticalContent {
+  display: flex;
 }
