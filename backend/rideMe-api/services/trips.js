@@ -80,6 +80,11 @@ class TripsServices {
     return trip || {};
   };
 
+  async getUserTrip({ userId }) {
+    const trips = await this.mongoDB.getAll(this.collection, { 'userId': userId });
+    return trips || {};
+  };
+
   async updateTrip({ tripId, trip }) {
     const updatedTripId = await this.mongoDB.update(this.collection, tripId, trip);
     return updatedTripId;

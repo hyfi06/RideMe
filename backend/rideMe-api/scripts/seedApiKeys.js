@@ -6,9 +6,7 @@ const adminScopes = [
   'signin:auth',
   'signup:auth',
   'read:trips',
-  'create:trips',
   'update:trips',
-  'delete:trips',
   'create:drivers',
   'update:drivers',
   'delete:drivers',
@@ -19,6 +17,7 @@ const userScopes = [
   'signup:auth',
   'read:trips',
   'create:trips',
+  'update:trips',
   'read:drivers',
 ];
 
