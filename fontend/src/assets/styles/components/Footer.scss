@@ -1,0 +1,24 @@
+@import '../App.scss';
+
+.footer {
+  @include flexBetCen;
+  padding: 0 5vw;
+  height: 5vw;
+  color: $light-color;
+  background-color: $dark-color;
+
+  .footer__made {
+    @include flexCenCen;
+    height: 100%;
+
+    .footer__made__link {
+      width: auto;
+      height: 50%;
+      
+      .footer__made__link-img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import '../App.scss';
+
+.info {
+  @include flexColCenCen;
+  background-color: $success-color;
+  color: $light-color;
+  padding: 5vw 7.5vw;
+  width: 100%;
+
+  .info__title {
+    font-size: 3vw;
+    margin: 0;
+    color: inherit;
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  .info__logo {
+    @include flexCenCen;
+    width: 25vw;
+    height: 25vw;
+    padding: 1.25vw;
+    background-color: $primary-color;
+    border-radius: 50%;
+  }
+
+  .info__logo-img {
+    width: 75%;
+    height: auto;
+  }
+}
