@@ -7,9 +7,10 @@ class GoogleMapsLib {
   constructor() {
     this.urlDistance = 'https://maps.googleapis.com/maps/api/distancematrix/json';
     this.urlGeocode = 'https://maps.googleapis.com/maps/api/geocode/json';
+    this.urlDirection = 'https://maps.googleapis.com/maps/api/directions/json';
   }
 
-  getGoogleMapsLocation = ({ address }) => {
+  getGoogleMapsLocation({ address }) {
     return (
       axios.get(`${this.urlGeocode}?address=${address}&key=${apiMapsKey}`).then((response) => {
         const locationInfo = response.data.results[0];
@@ -20,7 +21,7 @@ class GoogleMapsLib {
     );
   };
 
-  parseLatLngLocation = async (location) => {
+  async parseLatLngLocation(location) {
     const { address } = location;
     let { lat, lng } = location;
     if (address) {
@@ -31,11 +32,11 @@ class GoogleMapsLib {
     return { lat, lng };
   };
 
-  latLngToString = ({ lat, lng }) => {
+  latLngToString({ lat, lng }) {
     return `${lat},${lng}`;
   };
 
-  getDistance = ({ origin, destination }) => {
+  getDistance({ origin, destination }) {
     return (
       axios.get(`${this.urlDistance}?origins=${origin}&destinations=${destination}&key=${apiMapsKey}`).then((res) => {
         const distance = res.data.rows.map((element) => {
