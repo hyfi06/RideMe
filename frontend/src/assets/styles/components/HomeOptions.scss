@@ -1,0 +1,10 @@
+@import '../App.scss';
+
+.homeOptions {
+  @include flexColStaCen;
+
+  .homeOptions-item {
+    font-size: 1.75vw;
+    margin: 1vw 0;
+  }
+}
